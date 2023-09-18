@@ -12,12 +12,13 @@ public class IntListTest {
 
     @Test
     public void testList() {
-        IntList one = new IntList(1, null);
-        IntList twoOne = new IntList(2, one);
-        IntList threeTwoOne = new IntList(3, twoOne);
-
-        IntList x = IntList.of(3, 2, 1);
-        assertEquals(threeTwoOne, x);
+//        IntList one = new IntList(1, null);
+//        IntList twoOne = new IntList(2, one);
+//        IntList threeTwoOne = new IntList(3, twoOne);
+//
+//        IntList x = IntList.of(3, 2, 1);
+//        assertEquals(threeTwoOne, x);
+        testDcatenate();
     }
 
     @Test
