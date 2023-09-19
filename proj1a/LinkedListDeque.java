@@ -84,17 +84,17 @@ public class LinkedListDeque<T> {
         if (index < 0 || index >= size) {
             return null;
         }
-        return getRecursiveHelper(head, index);
+        return getRecursiveHelper(head.next, index);
     }
 
     private T getRecursiveHelper(Node currentNode, int index) {
 
         if (index == 0) {
-            return currentNode.next.item;
+            return currentNode.item;
         }
 
 
-        return getRecursiveHelper(currentNode.next.next, index - 1);
+        return getRecursiveHelper(currentNode.next, index - 1);
     }
 
 }
