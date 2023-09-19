@@ -1,23 +1,68 @@
 public class ArrayDeque<T> {
+    private int fpos = 0;
+    private int lpos = 0;
     private int size =0;
-    T[] item;
+    private T[] items;
     private static int length = 8;
 
-    public ArrayDeque(){
-        item =(T[]) new Object[8];
+    public ArrayDeque() {
+        items =(T[]) new Object[8];
+        fpos = 0;
+        lpos = 0;
         size =0;
     }
-    public ArrayDeque(ArrayDeque other){
-        item =(T[]) new Object[8];
-        for(int i =0;i<length ;i++){
-            item[i]= (T)other.item[i];
+    public ArrayDeque(ArrayDeque other) {
+        items =(T[]) new Object[8];
+        for(int i = 0; i < length ; i++){
+            items[i]= (T)other.items[i];
         }
+        fpos = other.fpos;
+        lpos = other.lpos;
         size = other.size;
     }
 
-    public void addFirst(T item){
+    public void addFirst(T item) {
         if(size == length) return;
-
+        if(fpos == 0) {
+            fpos = 8;
+        }
+        items[--fpos] = item;
+        size ++;
 
     }
+    public void addLast(T item) {
+        if(size == length) return;
+        if(lpos == 7)
+            lpos = -1;
+        items[lpos++] = item;
+        size ++;
+    }
+    public boolean isEmpty() {
+        return size == 0;
+    }
+    public int size() {
+        return size;
+    }
+    public void printDeque() {
+        if(size == 0) return;
+        for(int i = fpos; i != lpos; i = (i + 1) % length ){
+            System.out.println(items[i]+" ");
+        }
+        System.out.println();
+
+    }
+    public T removeFirst() {
+        if(size == 0) return null;
+        return items[fpos++];
+    }
+    public T removeLast() {
+        if(size == 0) return null;
+        return items[lpos--];
+    }
+    public T get(int index) {
+        if(index > lpos && index < fpos)
+            return  null;
+        return items[index];
+    }
+
 }
