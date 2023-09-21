@@ -33,7 +33,7 @@ public class ArrayDeque<T> {
     public void addLast(T item) {
         if(size == length) return;
         if(lpos == length - 1)
-            lpos = -1;
+            lpos = 0;
         items[lpos++] = item;
         size ++;
     }
