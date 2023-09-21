@@ -9,9 +9,11 @@ public class ArrayDequeTest {
         }
         for(int i=0;i<2;i++){
             int a = (int) ad.removeFirst();
+            ad.addFirst(a*a);
         }
         for(int i=0;i<2;i++){
             int a = (int) ad.removeLast();
+            ad.addLast(a*a);
         }
 
     }

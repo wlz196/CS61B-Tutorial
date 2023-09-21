@@ -8,7 +8,7 @@ public class ArrayDeque<T> {
     public ArrayDeque() {
         items =(T[]) new Object[8];
         fpos = 0;
-        lpos = 0;
+        lpos = 1;
         size =0;
     }
     public ArrayDeque(ArrayDeque other) {
@@ -23,16 +23,16 @@ public class ArrayDeque<T> {
 
     public void addFirst(T item) {
         if(size == length) return;
-        if(fpos == 0) {
-            fpos = 8;
+        if(fpos == -1) {
+            fpos = length-1 ;
         }
-        items[--fpos] = item;
+        items[fpos--] = item;
         size ++;
 
     }
     public void addLast(T item) {
         if(size == length) return;
-        if(lpos == 7)
+        if(lpos == length - 1)
             lpos = -1;
         items[lpos++] = item;
         size ++;
@@ -53,11 +53,13 @@ public class ArrayDeque<T> {
     }
     public T removeFirst() {
         if(size == 0) return null;
-        return items[fpos++];
+        size--;
+        return items[++fpos];
     }
     public T removeLast() {
         if(size == 0) return null;
-        return items[lpos--];
+        size--;
+        return items[--lpos];
     }
     public T get(int index) {
         if(index > lpos && index < fpos)
