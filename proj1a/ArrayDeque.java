@@ -36,7 +36,7 @@ public class ArrayDeque<T> {
                 newItems[j] = items[i];
             }
             items = newItems;
-            lpos = length;
+            lpos = size;
             fpos = 0;
             length/=2;
         }
