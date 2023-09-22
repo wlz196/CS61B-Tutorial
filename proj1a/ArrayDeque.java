@@ -69,6 +69,7 @@ public class ArrayDeque<T> {
 
     }
     public T removeFirst() {
+        if(isEmpty()) return null;
         changeSize();
         size--;
         T res = items[fpos];
@@ -76,6 +77,7 @@ public class ArrayDeque<T> {
         return res;
     }
     public T removeLast() {
+        if(isEmpty()) return null;
         changeSize();
         size--;
         lpos =calleft(lpos);
@@ -85,7 +87,12 @@ public class ArrayDeque<T> {
     public T get(int index) {
         if(index > lpos && index < fpos)
             return  null;
-        return items[index];
+        int res = fpos;
+        while(index>0){
+            res = calright(fpos);
+            index--;
+        }
+        return items[res];
     }
 
 

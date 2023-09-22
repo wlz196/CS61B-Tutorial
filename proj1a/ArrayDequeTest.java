@@ -36,22 +36,25 @@ public class ArrayDequeTest {
     }
     @Test
     public void quyu(){
-        System.out.println(-1%8);
+        ArrayDeque ad =new ArrayDeque<>();
+        ad.size();
+        ad.addFirst(1);
     }
     @Test
     public void testGet(){
         ArrayDeque ad =new ArrayDeque<>();
-        ad.addFirst(0);
-        ad.addFirst(1);
+        ad.addLast(0);
+        ad.addLast(1);
         ad.addFirst(2);
+        ad.addFirst(3);
+        ad.removeFirst();
+        ad.addLast(5);
+        ad.addFirst(6);
+        ad.removeFirst();
         ad.removeLast();
-        ad.removeFirst();
-        ad.removeFirst();
-        ad.addLast(6);
-        ad.addFirst(7);
-        ad.removeFirst();
-        ad.addFirst(9);
-        ad.get(0);
+        ad.removeLast();
+        ad.addLast(10);
+        System.out.println(ad.get(0));
 
     }
     @Test
@@ -64,5 +67,14 @@ public class ArrayDequeTest {
             ad.addLast(i);
         }
         ad.addFirst(12);
+    }
+    @Test
+    public void Testaddre(){
+        ArrayDeque ad =new ArrayDeque<>();
+        for(int i=0;i<8;i++) {
+            ad.addLast(i);
+        }
+        System.out.println(ad.removeFirst());
+        System.out.println(ad.removeLast());
     }
 }
