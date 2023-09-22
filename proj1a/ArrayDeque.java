@@ -5,7 +5,7 @@ public class ArrayDeque<T> {
     private int lpos = 0;
     private int size =0;
     private T[] items;
-    private static int length = 8;
+    private  int length = 8;
 
     public ArrayDeque() {
         items =(T[]) new Object[8];
@@ -22,7 +22,7 @@ public class ArrayDeque<T> {
     private void changeSize(){
         if(size == length) {
             T newItems[] = (T[]) new Object[length * 2];
-            for (int i = fpos, j = 0; j < length; i = calright(i), j++) {
+            for (int i = fpos, j = 0; j < size; i = calright(i), j++) {
                 newItems[j] = items[i];
             }
             items = newItems;
@@ -32,7 +32,7 @@ public class ArrayDeque<T> {
         }
         if(size <0.25*length && length>=16){
             T newItems[] = (T[]) new Object[length /2];
-            for (int i = fpos, j = 0; j < length; i = calright(i), j++) {
+            for (int i = fpos, j = 0; i!=lpos; i = calright(i), j++) {
                 newItems[j] = items[i];
             }
             items = newItems;

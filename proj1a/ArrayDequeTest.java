@@ -67,6 +67,9 @@ public class ArrayDequeTest {
             ad.addLast(i);
         }
         ad.addFirst(12);
+        for(int i=0;i<12;i++){
+            ad.removeFirst();
+        }
     }
     @Test
     public void Testaddre(){
