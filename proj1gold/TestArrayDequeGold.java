@@ -32,7 +32,7 @@ public class TestArrayDequeGold {
                 Integer tmp1 = (Integer) sd.removeLast();
                 Integer tmp2 = (Integer) ad.removeLast();
                 if(tmp1 != tmp2) {
-                    assertEquals("failed",tmp2,tmp1);
+                    assertEquals(tmp2,tmp1);
                     break;
                 }
             }
