@@ -1,3 +1,5 @@
+import org.junit.Test;
+
 public class ArrayDeque<T> {
     private int fpos = 0;
     private int lpos = 0;
@@ -11,13 +13,22 @@ public class ArrayDeque<T> {
         lpos = 0;
         size =0;
     }
-    public int calleft(int fpos){
+    private int calleft(int fpos){
         return (fpos+length-1)%length;
     }
-    public int calright(int lpos) {
+    private int calright(int lpos) {
         return (lpos+length+1)%length;
     }
-
+    private void changeSize(){
+        T newItems[] = (T[]) new Object[length*2];
+        for(int i=fpos, j=0;j<length ;i=calright(i),j++){
+            newItems[j] = items[i];
+        }
+        items = newItems;
+        lpos = length;
+        fpos = 0;
+        length*=2;
+    }
     public void addFirst(T item) {
         if(size == length) return;
         fpos = calleft(fpos);
@@ -26,7 +37,7 @@ public class ArrayDeque<T> {
 
     }
     public void addLast(T item) {
-        if(size == length) return;
+        if(size == length) changeSize();
         items[lpos] = item;
         lpos = calright(lpos);
         size ++;
@@ -64,5 +75,6 @@ public class ArrayDeque<T> {
             return  null;
         return items[index];
     }
+
 
 }

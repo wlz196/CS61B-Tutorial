@@ -38,4 +38,31 @@ public class ArrayDequeTest {
     public void quyu(){
         System.out.println(-1%8);
     }
+    @Test
+    public void testGet(){
+        ArrayDeque ad =new ArrayDeque<>();
+        ad.addFirst(0);
+        ad.addFirst(1);
+        ad.addFirst(2);
+        ad.removeLast();
+        ad.removeFirst();
+        ad.removeFirst();
+        ad.addLast(6);
+        ad.addFirst(7);
+        ad.removeFirst();
+        ad.addFirst(9);
+        ad.get(0);
+
+    }
+    @Test
+    public void TestChangeSize(){
+        ArrayDeque ad =new ArrayDeque<>();
+        for(int i=0;i<6;i++){
+            ad.addFirst(i);
+        }
+        for(int i=6;i<13;i++){
+            ad.addLast(i);
+        }
+        ad.addFirst(12);
+    }
 }
