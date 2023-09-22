@@ -20,24 +20,36 @@ public class ArrayDeque<T> {
         return (lpos+length+1)%length;
     }
     private void changeSize(){
-        T newItems[] = (T[]) new Object[length*2];
-        for(int i=fpos, j=0;j<length ;i=calright(i),j++){
-            newItems[j] = items[i];
+        if(size == length) {
+            T newItems[] = (T[]) new Object[length * 2];
+            for (int i = fpos, j = 0; j < length; i = calright(i), j++) {
+                newItems[j] = items[i];
+            }
+            items = newItems;
+            lpos = length;
+            fpos = 0;
+            length *= 2;
         }
-        items = newItems;
-        lpos = length;
-        fpos = 0;
-        length*=2;
+        while(size <0.25*length && length>=16){
+            T newItems[] = (T[]) new Object[length /2];
+            for (int i = fpos, j = 0; j < length; i = calright(i), j++) {
+                newItems[j] = items[i];
+            }
+            items = newItems;
+            lpos = length;
+            fpos = 0;
+            length/=2;
+        }
     }
     public void addFirst(T item) {
-        if(size == length) return;
+        changeSize();
         fpos = calleft(fpos);
         items[fpos] = item;
         size ++;
 
     }
     public void addLast(T item) {
-        if(size == length) changeSize();
+        changeSize();
         items[lpos] = item;
         lpos = calright(lpos);
         size ++;
@@ -57,14 +69,14 @@ public class ArrayDeque<T> {
 
     }
     public T removeFirst() {
-        if(size == 0) return null;
+        changeSize();
         size--;
         T res = items[fpos];
         fpos = calright(fpos);
         return res;
     }
     public T removeLast() {
-        if(size == 0) return null;
+        changeSize();
         size--;
         lpos =calleft(lpos);
         T res = items[lpos];
