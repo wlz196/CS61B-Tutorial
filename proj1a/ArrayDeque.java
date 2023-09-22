@@ -85,11 +85,10 @@ public class ArrayDeque<T> {
         return res;
     }
     public T get(int index) {
-        if(index > lpos && index < fpos)
-            return  null;
+
         int res = fpos;
         while(index>0){
-            res = calright(fpos);
+            res = calright(res);
             index--;
         }
         return items[res];

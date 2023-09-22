@@ -45,16 +45,11 @@ public class ArrayDequeTest {
         ArrayDeque ad =new ArrayDeque<>();
         ad.addLast(0);
         ad.addLast(1);
-        ad.addFirst(2);
-        ad.addFirst(3);
-        ad.removeFirst();
-        ad.addLast(5);
-        ad.addFirst(6);
-        ad.removeFirst();
         ad.removeLast();
-        ad.removeLast();
-        ad.addLast(10);
         System.out.println(ad.get(0));
+        ad.addFirst(4);
+        ad.addFirst(6);
+        System.out.println(ad.get(2));
 
     }
     @Test
