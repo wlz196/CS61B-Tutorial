@@ -30,7 +30,7 @@ public class ArrayDeque<T> {
             fpos = 0;
             length *= 2;
         }
-        while(size <0.25*length && length>=16){
+        if(size <0.25*length && length>=16){
             T newItems[] = (T[]) new Object[length /2];
             for (int i = fpos, j = 0; j < length; i = calright(i), j++) {
                 newItems[j] = items[i];
