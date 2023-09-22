@@ -22,7 +22,7 @@ public class ArrayDeque<T> {
     private void changeSize(){
         if(size == length) {
             T newItems[] = (T[]) new Object[length * 2];
-            for (int i = fpos, j = 0; j < size; i = calright(i), j++) {
+            for (int i = fpos, j = 0; i!=lpos; i = calright(i), j++) {
                 newItems[j] = items[i];
             }
             items = newItems;
