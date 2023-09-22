@@ -90,4 +90,17 @@ public class ArrayDequeTest {
         System.out.println(ad.removeFirst());
         System.out.println(ad.removeLast());
     }
+    @Test
+    public void Testa(){
+        ArrayDeque ad =new ArrayDeque<>();
+        for(int i=0;i<50;i++){
+            ad.addFirst(1);
+        }
+        for(int i=0;i<50;i++){
+            ad.removeFirst();
+        }
+        for(int i=0;i<50;i++){
+            ad.addFirst(1);
+        }
+    }
 }
