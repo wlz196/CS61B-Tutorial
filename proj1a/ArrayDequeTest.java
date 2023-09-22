@@ -26,4 +26,12 @@ public class ArrayDequeTest {
         }
 
     }
+    @Test
+    public void add0(){
+        ArrayDeque ad =new ArrayDeque<>();
+        for(int i=0;i<7;i++){
+            ad.addLast(0);
+        }
+        System.out.println(ad.get(0));
+    }
 }

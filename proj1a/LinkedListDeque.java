@@ -2,7 +2,7 @@ public class LinkedListDeque<T> {
     private Node head;
     private Node tail;
     private int size = 0;
-    public class Node {
+    private class Node {
         private Node prev;
         private T item;
         private Node next;
@@ -73,13 +73,7 @@ public class LinkedListDeque<T> {
         tail.prev = head;
         size = 0;
     }
-    public LinkedListDeque(LinkedListDeque other){
-        Node q = other.head.next;
-        while(q != tail){
-            addLast(q.item);
-            q = q.next;
-        }
-    }
+
     public T getRecursive(int index) {
         if (index < 0 || index >= size) {
             return null;

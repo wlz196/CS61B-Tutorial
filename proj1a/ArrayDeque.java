@@ -11,15 +11,7 @@ public class ArrayDeque<T> {
         lpos = 1;
         size =0;
     }
-    public ArrayDeque(ArrayDeque other) {
-        items =(T[]) new Object[8];
-        for(int i = 0; i < length ; i++){
-            items[i]= (T)other.items[i];
-        }
-        fpos = other.fpos;
-        lpos = other.lpos;
-        size = other.size;
-    }
+
 
     public void addFirst(T item) {
         if(size == length) return;
@@ -32,7 +24,7 @@ public class ArrayDeque<T> {
     }
     public void addLast(T item) {
         if(size == length) return;
-        if(lpos == length - 1)
+        if(lpos == length )
             lpos = 0;
         items[lpos++] = item;
         size ++;
