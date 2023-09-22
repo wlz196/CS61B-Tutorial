@@ -8,25 +8,27 @@ public class ArrayDeque<T> {
     public ArrayDeque() {
         items =(T[]) new Object[8];
         fpos = 0;
-        lpos = 1;
+        lpos = 0;
         size =0;
     }
-
+    public int calleft(int fpos){
+        return (fpos+length-1)%length;
+    }
+    public int calright(int lpos) {
+        return (lpos+length+1)%length;
+    }
 
     public void addFirst(T item) {
         if(size == length) return;
-        if(fpos == -1) {
-            fpos = length-1 ;
-        }
-        items[fpos--] = item;
+        fpos = calleft(fpos);
+        items[fpos] = item;
         size ++;
 
     }
     public void addLast(T item) {
         if(size == length) return;
-        if(lpos == length )
-            lpos = 0;
-        items[lpos++] = item;
+        items[lpos] = item;
+        lpos = calright(lpos);
         size ++;
     }
     public boolean isEmpty() {
@@ -46,12 +48,16 @@ public class ArrayDeque<T> {
     public T removeFirst() {
         if(size == 0) return null;
         size--;
-        return items[++fpos];
+        T res = items[fpos];
+        fpos = calright(fpos);
+        return res;
     }
     public T removeLast() {
         if(size == 0) return null;
         size--;
-        return items[--lpos];
+        lpos =calleft(lpos);
+        T res = items[lpos];
+        return res;
     }
     public T get(int index) {
         if(index > lpos && index < fpos)

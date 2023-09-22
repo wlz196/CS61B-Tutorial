@@ -34,4 +34,8 @@ public class ArrayDequeTest {
         }
         System.out.println(ad.get(0));
     }
+    @Test
+    public void quyu(){
+        System.out.println(-1%8);
+    }
 }
