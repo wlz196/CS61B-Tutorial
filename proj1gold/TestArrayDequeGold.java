@@ -24,7 +24,7 @@ public class TestArrayDequeGold {
                 Integer tmp1 = (Integer) sd.removeFirst();
                 Integer tmp2 = (Integer) ad.removeFirst();
                 if(tmp1 != tmp2) {
-                    assertEquals("failed",tmp2,tmp1);
+                    assertEquals(tmp2,tmp1);
                     break;
                 }
             }else{
