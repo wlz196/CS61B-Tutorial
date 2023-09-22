@@ -25,7 +25,7 @@ public class TestArrayDequeGold {
                 Integer tmp2 = (Integer) ad.removeFirst();
                 if(tmp1 != tmp2) {
                     assertEquals(tmp2,tmp1);
-                    break;
+
                 }
             }else{
                 if(ad.isEmpty()|| sd.isEmpty()) continue;
@@ -33,7 +33,7 @@ public class TestArrayDequeGold {
                 Integer tmp2 = (Integer) ad.removeLast();
                 if(tmp1 != tmp2) {
                     assertEquals(tmp2,tmp1);
-                    break;
+                    
                 }
             }
         }
