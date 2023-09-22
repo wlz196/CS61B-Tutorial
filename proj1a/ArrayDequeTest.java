@@ -44,12 +44,27 @@ public class ArrayDequeTest {
     public void testGet(){
         ArrayDeque ad =new ArrayDeque<>();
         ad.addLast(0);
-        ad.addLast(1);
+        ad.addFirst(1);
+        ad.addLast(2);
+        ad.addFirst(3);
         ad.removeLast();
         System.out.println(ad.get(0));
-        ad.addFirst(4);
-        ad.addFirst(6);
-        System.out.println(ad.get(2));
+        ad.removeFirst();
+        ad.removeLast();
+        System.out.println(ad.get(0));
+        System.out.println(ad.get(0));
+        ad.addLast(10);
+        System.out.println(ad.get(1));
+        ad.addLast(14);
+        ad.addFirst(15);
+        ad.removeLast();
+        ad.addLast(17);
+        ad.addFirst(18);
+        ad.addLast(19);
+        ad.addFirst(20);
+        ad.addLast(21);
+        System.out.println(ad.size());
+        System.out.println(ad.removeFirst());
 
     }
     @Test
