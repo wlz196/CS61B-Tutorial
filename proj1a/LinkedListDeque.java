@@ -2,11 +2,13 @@ public class LinkedListDeque<T> {
     private Node head;
     private Node tail;
     private int size = 0;
+
     private class Node {
         private Node prev;
         private T item;
         private Node next;
     }
+
     public void addFirst(T item) {
         Node p = new Node();
         p.item = item;
@@ -17,6 +19,7 @@ public class LinkedListDeque<T> {
         size++;
 
     }
+
     public void addLast(T item) {
         Node p = new Node();
         p.item = item;
@@ -26,20 +29,24 @@ public class LinkedListDeque<T> {
         tail.prev = p;
         size++;
     }
+
     public boolean isEmpty() {
         return size == 0;
     }
+
     public int size() {
         return size;
     }
-    public void printDeque(){
-        for(Node p = head;p != tail;p = p.next) {
-            System.out.print(p.item+" ");
+
+    public void printDeque() {
+        for (Node p = head; p != tail; p = p.next) {
+            System.out.print(p.item + " ");
         }
         System.out.println();
     }
+
     public T removeFirst() {
-        if(isEmpty())
+        if (isEmpty())
             return null;
         T item = head.next.item;
         head.next = head.next.next;
@@ -47,8 +54,9 @@ public class LinkedListDeque<T> {
         size--;
         return item;
     }
+
     public T removeLast() {
-        if(isEmpty())
+        if (isEmpty())
             return null;
         T item = tail.prev.item;
         tail.prev = tail.prev.prev;
@@ -56,17 +64,19 @@ public class LinkedListDeque<T> {
         size--;
         return item;
     }
+
     public T get(int index) {
-        if(index >= size)
+        if (index >= size)
             return null;
         Node p = head.next;
-        while(index != 0){
+        while (index != 0) {
             p = p.next;
             index--;
         }
         return p.item;
     }
-    public LinkedListDeque(){
+
+    public LinkedListDeque() {
         this.head = new Node();
         this.tail = new Node();
         head.next = tail;
